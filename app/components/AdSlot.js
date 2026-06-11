@@ -11,10 +11,11 @@ export default function AdSlot({ settings, className }) {
 
   useEffect(() => {
     if (!enabled || !client || !slot || pushed.current) return
-    const id = 'adsbygoogle-js'
-    if (!document.getElementById(id)) {
+    // The loader is normally added to <head> in layout.js. Only inject it here
+    // as a fallback if no adsbygoogle.js script is present yet.
+    if (!document.querySelector('script[src*="adsbygoogle.js"]')) {
       const s = document.createElement('script')
-      s.id = id
+      s.id = 'adsbygoogle-js'
       s.async = true
       s.crossOrigin = 'anonymous'
       s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${client}`
