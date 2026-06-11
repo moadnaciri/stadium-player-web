@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "deploy": "next build && firebase deploy --only hosting"
+    "copy-sw": "node -e \"require('fs').copyFileSync('../sw.js','out/sw.js')\"",
+    "deploy": "next build && npm run copy-sw && firebase deploy --only hosting --project stadium-web-app-7c3bc"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
