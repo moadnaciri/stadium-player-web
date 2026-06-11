@@ -41,6 +41,13 @@ export default function RootLayout({ children }) {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4461806685997784"
           crossOrigin="anonymous"
         />
+        {/* Monetag */}
+        <script
+          src="https://quge5.com/88/tag.min.js"
+          data-zone="248809"
+          async
+          data-cfasync="false"
+        />
       </head>
       <body className="font-sans">{children}</body>
     </html>
